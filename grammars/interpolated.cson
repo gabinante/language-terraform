@@ -18,8 +18,8 @@
     'name': 'none'
     'patterns': [
       {
-        'include': '#interplang'
         'include': '#jinja_stuff'
+        'include': '#interplang'
       }
     ]
   }
