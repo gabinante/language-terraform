@@ -15,54 +15,54 @@
 ]
 
 'Jinja Templates':
-'patterns': [
-  {
-    'begin': '({%)\\s*(raw)\\s*(%})'
-    'captures':
-      '1':
-        'name': 'entity.other.jinja.delimiter.tag'
-      '2':
-        'name': 'keyword.control.jinja'
-      '3':
-        'name': 'entity.other.jinja.delimiter.tag'
-    'end': '({%)\\s*(endraw)\\s*(%})'
-    'name': 'comment.block.jinja.raw'
-  }
-  {
-    'begin': '{#-?'
-    'captures':
-      '0':
-        'name': 'entity.other.jinja.delimiter.comment'
-    'end': '-?#}'
-    'name': 'comment.block.jinja'
-  }
-  {
-    'begin': '{{-?'
-    'captures':
-      '0':
-        'name': 'entity.other.jinja.delimiter.variable'
-    'end': '-?}}'
-    'name': 'meta.scope.jinja.variable'
-    'patterns': [
-      {
-        'include': '#expression'
-      }
-    ]
-  }
-  {
-    'begin': '{%-?'
-    'captures':
-      '0':
-        'name': 'entity.other.jinja.delimiter.tag'
-    'end': '-?%}'
-    'name': 'meta.scope.jinja.tag'
-    'patterns': [
-      {
-        'include': '#expression'
-      }
-    ]
-  }
-]
+	'patterns': [
+	  {
+	    'begin': '({%)\\s*(raw)\\s*(%})'
+	    'captures':
+	      '1':
+	        'name': 'entity.other.jinja.delimiter.tag'
+	      '2':
+	        'name': 'keyword.control.jinja'
+	      '3':
+	        'name': 'entity.other.jinja.delimiter.tag'
+	    'end': '({%)\\s*(endraw)\\s*(%})'
+	    'name': 'comment.block.jinja.raw'
+	  }
+	  {
+	    'begin': '{#-?'
+	    'captures':
+	      '0':
+	        'name': 'entity.other.jinja.delimiter.comment'
+	    'end': '-?#}'
+	    'name': 'comment.block.jinja'
+	  }
+	  {
+	    'begin': '{{-?'
+	    'captures':
+	      '0':
+	        'name': 'entity.other.jinja.delimiter.variable'
+	    'end': '-?}}'
+	    'name': 'meta.scope.jinja.variable'
+	    'patterns': [
+	      {
+	        'include': '#expression'
+	      }
+	    ]
+	  }
+	  {
+	    'begin': '{%-?'
+	    'captures':
+	      '0':
+	        'name': 'entity.other.jinja.delimiter.tag'
+	    'end': '-?%}'
+	    'name': 'meta.scope.jinja.tag'
+	    'patterns': [
+	      {
+	        'include': '#expression'
+	      }
+	    ]
+	  }
+	]
 'jrepository':
   'escaped_char':
     'match': '\\\\x[0-9A-F]{2}'
