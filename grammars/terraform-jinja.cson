@@ -1,4 +1,4 @@
-'scopeName': 'source.terraform.jinja2'
+'scopeName': 'source.terraform-jinja2'
 'name': 'Terraform-jinja2'
 'fileTypes': [
   'tf.jinja2'
