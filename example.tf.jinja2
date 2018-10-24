@@ -16,7 +16,7 @@ provider azurerm {
 }
 
 data "aws_route53_zone" "sec_domain" {
-    name = "${ var.sec_domain}"
+    name = "${var.sec_domain}"
 }
 
 resource "azurerm_resource_group" "{{ customer.identifier }}" {
