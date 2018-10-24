@@ -146,23 +146,6 @@
         'match': '='
         'name': 'keyword.operator.assignment.jinja'
       }
-      {
-        'begin': '"'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.jinja'
-        'end': '"'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.end.jinja'
-        'name': 'string.quoted.double.jinja'
-        'patterns': [
-          {
-            'include': '#jinja_stuff'
-            'inlucde': '#strings'
-          }
-        ]
-      }
     ]
   'jinja_stuff':
     'patterns': [
