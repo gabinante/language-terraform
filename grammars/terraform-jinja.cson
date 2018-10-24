@@ -14,7 +14,6 @@
   {'include': '#properties'}
   {'include': '#escaped_char'}
   {'include': '#jinja_expression'}
-  {'include': '#jinja_stuff'}
 ]
 
 'repository':
@@ -220,6 +219,7 @@
       {'include': '#heredocs'}
       {'include': '#strings'}
       {'include': '#jinja_stuff'}
+      {'include': '#jinja_expression'}
     ]
   'strings':
     'patterns': [
@@ -316,6 +316,7 @@
         'patterns': [
           {'include': '#primitives'}
           {'match': ','}
+          {'include': '#jinja_expression'}
         ]
       }
     ]
@@ -337,6 +338,7 @@
         'name': 'meta.section'
         'patterns': [
           {'include': '$base'}
+          {'include': '#jinja_expression'}
         ]
       }
     ]
