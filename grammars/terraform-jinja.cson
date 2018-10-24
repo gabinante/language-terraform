@@ -159,6 +159,7 @@
         'patterns': [
           {
             'include': '#jinja_stuff'
+            'inlucde': '#strings'
           }
         ]
       }
@@ -235,6 +236,7 @@
       }
       {'include': '#heredocs'}
       {'include': '#strings'}
+      {'include': '#jinja_stuff'}
     ]
   'strings':
     'patterns': [
@@ -245,7 +247,6 @@
         'name': 'string.interpolated'
         'contentName': 'entity'
       }
-      {'include': '#jinja_stuff'}
     ]
   'heredocs':
     'patterns': [
