@@ -1,12 +1,12 @@
 {
-  "name": "language-terraform",
+  "name": "language-terraform-jinja",
   "version": "0.8.1",
-  "description": "Terraform.io support for Atom",
+  "description": "Terraform + jinja support for Atom",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GiantToast/language-terraform.git"
+    "url": "https://github.com/gabinante/language-terraform.git"
   },
-  "homepage": "http://GiantToast.github.io/language-terraform",
+  "homepage": "https://github.com/gabinante/language-terraform.git",
   "license": "MIT",
   "engines": {
     "atom": "*",
