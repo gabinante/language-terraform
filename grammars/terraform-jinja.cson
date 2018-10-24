@@ -222,11 +222,6 @@
           'match': '\\/\\/.*'
           'name': 'comment.double-slash'
         }
-        {
-          'begin': '\\/\\*'
-          'end': '\\*\\/'
-          'name': 'comment.block'
-        }
     ]
   'primitives':
     'patterns': [
