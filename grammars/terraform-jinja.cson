@@ -191,6 +191,7 @@
         'patterns': [
           {
             'include': '#jinja_expression'
+            'include': '#jinja_stuff'
           }
         ]
       }
