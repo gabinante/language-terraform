@@ -14,7 +14,7 @@
 	{'include': '#properties'}
 ]
 
-'Jinja Templates'
+'Jinja Templates':
 'patterns': [
   {
     'begin': '({%)\\s*(raw)\\s*(%})'
@@ -63,7 +63,7 @@
     ]
   }
 ]
-'repository':
+'jrepository':
   'escaped_char':
     'match': '\\\\x[0-9A-F]{2}'
     'name': 'constant.character.escape.hex.jinja'
@@ -207,7 +207,7 @@
             'include': '#string'
           }
         ]
-
+			]
 'repository':
 	'comments':
 		'patterns': [
