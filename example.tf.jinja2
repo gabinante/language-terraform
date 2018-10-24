@@ -1,0 +1,60 @@
+# -----------------------------------------------------------------------------
+# Generic Resources
+# -----------------------------------------------------------------------------
+provider aws {
+    access_key  = "{{ secrets.AWS_ACCESS_KEY_ID }}"
+    secret_key  = "{{ secrets.AWS_SECRET_ACCESS_KEY }}"
+    region      = "{{ secrets.AWS_DEFAULT_REGION }}"
+}
+
+provider azurerm {
+    version = "~>1.15.0"
+    subscription_id = "{{ secrets.AZURE_SUBSCRIPTION_ID }}"
+    client_id       = "{{ secrets.AZURE_CLIENT_ID }}"
+    client_secret   = "{{ secrets.AZURE_SECRET }}"
+    tenant_id       = "{{ secrets.AZURE_TENANT }}"
+}
+
+data "aws_route53_zone" "sec_domain" {
+    name = "${ var.sec_domain}"
+}
+
+resource "azurerm_resource_group" "{{ customer.identifier }}" {
+  name      = "{{ customer.identifier }}-{{ terraform.region }}"
+  location  = "{{ terraform.region }}"
+  tags      = "${merge(var.default_tags,
+               map("customer_uid" ,"{{ customer.identifier }}"),
+               map("customer_fullname", "{{customer.fullname}}"),
+               map("customer_tier", "customer.tier"))}"
+}
+
+# -----------------------------------------------------------------------------
+# CDN Configuration
+# -----------------------------------------------------------------------------
+
+{% set cdn_profile_name    = customer.identifier + '-' + customer.cluster.type + '-' + customer.cluster.environment + customer.cluster.env_number|string %}
+{% set res_alias_name      = cdn_profile_name + '-one' + '.' + '${var.sec_domain}' %}
+{% set tracking_alias_name = cdn_profile_name + '-two' + '.' + '${var.sec_domain}' %}
+
+resource "aws_cloudfront_distribution" "{{ cdn_profile_name }}" {
+  enabled             = true
+  comment             = "Distribution for {{ cdn_profile_name }}"
+  aliases             = ["{{ res_alias_name }}"]
+  http_version        = "http2"
+  price_class         = "PriceClass_All"
+  default_root_object = ""
+  web_acl_id          = ""
+
+  origin {
+    domain_name = "{{ tracking_alias_name }}"
+    origin_id   = "Custom-{{ tracking_alias_name }}"
+    origin_path = ""
+
+    custom_origin_config {
+      origin_protocol_policy = "http-only"
+      http_port              = "80"
+      https_port             = "443"
+      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+    }
+
+  }
