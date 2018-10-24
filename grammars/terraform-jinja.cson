@@ -246,6 +246,7 @@
         'name': 'string.interpolated'
         'contentName': 'entity'
       }
+      {'include': '#jinja_stuff'}
     ]
   'heredocs':
     'patterns': [
