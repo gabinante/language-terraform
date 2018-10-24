@@ -63,6 +63,7 @@
 	    ]
 	  }
 	]
+
 'jrepository':
   'escaped_char':
     'match': '\\\\x[0-9A-F]{2}'
@@ -207,6 +208,7 @@
             'include': '#string'
           }
         ]
+			}
 		]
 'repository':
 	'comments':
