@@ -158,7 +158,6 @@
         'name': 'string.quoted.double.jinja'
         'patterns': [
           {
-            'include': '#strings'
             'include': '#jinja_stuff'
           }
         ]
