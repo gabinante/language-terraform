@@ -159,6 +159,7 @@
         'patterns': [
           {
             'include': '#strings'
+            'include': '#jinja_stuff'
           }
         ]
       }
