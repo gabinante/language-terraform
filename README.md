@@ -1,13 +1,11 @@
-# Terraform.io language support in Atom
+# Terraform + Jinja language support in Atom
 
-Adds syntax highlighting for Terraform.io configuration files to Atom.
+Adds Atom syntax highlighting for Terraform.io configuration files that are being templated using jinja2. This is just a hacked together version of the [terraform package by GiantToast](https://github.com/GiantToast/language-terraform) and the [jinja2 package by danielchatfield](https://github.com/danielchatfield/atom-jinja2)
 
 ## Install
 
-Install the package `language-terraform` in Atom (Preferences->Install->Packages) or Atom's package manager from a shell:
-
 ```bash
-$ apm install language-terraform
+$ apm install /Users/abinante/GitHub/language-terraform/grammars/terraform-jinja.cson
 ```
 
 ## Contributions
