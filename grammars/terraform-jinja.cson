@@ -106,7 +106,7 @@
         'end': '\\]'
         'patterns': [
           {
-            'include': '#expression'
+            'include': '#jinja_expression'
           }
         ]
       }
@@ -118,7 +118,7 @@
         'end': '\\)'
         'patterns': [
           {
-            'include': '#expression'
+            'include': '#jinja_expression'
           }
         ]
       }
@@ -130,7 +130,7 @@
         'end': '\\}'
         'patterns': [
           {
-            'include': '#expression'
+            'include': '#jinja_expression'
           }
         ]
       }
@@ -158,7 +158,7 @@
         'name': 'string.quoted.double.jinja'
         'patterns': [
           {
-            'include': '#string'
+            'include': '#strings'
           }
         ]
       }
@@ -194,7 +194,7 @@
         'name': 'meta.scope.jinja.variable'
         'patterns': [
           {
-            'include': '#expression'
+            'include': '#jinja_expression'
           }
         ]
       }
@@ -207,7 +207,7 @@
         'name': 'meta.scope.jinja.tag'
         'patterns': [
           {
-            'include': '#expression'
+            'include': '#jinja_expression'
           }
         ]
       }
