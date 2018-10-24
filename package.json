@@ -4,9 +4,9 @@
   "description": "Terraform + jinja support for Atom",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gabinante/language-terraform.git"
+    "url": "https://github.com/gabinante/language-terraform-jinja.git"
   },
-  "homepage": "https://github.com/gabinante/language-terraform.git",
+  "homepage": "https://github.com/gabinante/language-terraform-jinja.git",
   "license": "MIT",
   "engines": {
     "atom": "*",
