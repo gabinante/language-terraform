@@ -1,0 +1,377 @@
+'scopeName': 'source.terraform.jinja2'
+'name': 'Terraform-jinja2'
+'fileTypes': [
+	'tf.jinja2'
+]
+'foldingStartMarker': '\\{\\s*$'
+'foldingStopMarker': '^\\s*\\}'
+
+'patterns': [
+	{'include': '#comments'}
+	{'include': '#sections'}
+	{'include': '#literals'}
+	{'include': '#keywords'}
+	{'include': '#properties'}
+]
+
+'Jinja Templates'
+'patterns': [
+  {
+    'begin': '({%)\\s*(raw)\\s*(%})'
+    'captures':
+      '1':
+        'name': 'entity.other.jinja.delimiter.tag'
+      '2':
+        'name': 'keyword.control.jinja'
+      '3':
+        'name': 'entity.other.jinja.delimiter.tag'
+    'end': '({%)\\s*(endraw)\\s*(%})'
+    'name': 'comment.block.jinja.raw'
+  }
+  {
+    'begin': '{#-?'
+    'captures':
+      '0':
+        'name': 'entity.other.jinja.delimiter.comment'
+    'end': '-?#}'
+    'name': 'comment.block.jinja'
+  }
+  {
+    'begin': '{{-?'
+    'captures':
+      '0':
+        'name': 'entity.other.jinja.delimiter.variable'
+    'end': '-?}}'
+    'name': 'meta.scope.jinja.variable'
+    'patterns': [
+      {
+        'include': '#expression'
+      }
+    ]
+  }
+  {
+    'begin': '{%-?'
+    'captures':
+      '0':
+        'name': 'entity.other.jinja.delimiter.tag'
+    'end': '-?%}'
+    'name': 'meta.scope.jinja.tag'
+    'patterns': [
+      {
+        'include': '#expression'
+      }
+    ]
+  }
+]
+'repository':
+  'escaped_char':
+    'match': '\\\\x[0-9A-F]{2}'
+    'name': 'constant.character.escape.hex.jinja'
+  'escaped_unicode_char':
+    'captures':
+      '1':
+        'name': 'constant.character.escape.unicode.16-bit-hex.jinja'
+      '2':
+        'name': 'constant.character.escape.unicode.32-bit-hex.jinja'
+      '3':
+        'name': 'constant.character.escape.unicode.name.jinja'
+    'match': '(\\\\U[0-9A-Fa-f]{8})|(\\\\u[0-9A-Fa-f]{4})|(\\\\N\\{[a-zA-Z ]+\\})'
+  'expression':
+    'patterns': [
+      {
+        'captures':
+          '1':
+            'name': 'keyword.control.jinja'
+          '2':
+            'name': 'variable.other.jinja.block'
+        'match': '\\s*\\b(block)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b'
+      }
+      {
+        'captures':
+          '1':
+            'name': 'keyword.control.jinja'
+          '2':
+            'name': 'variable.other.jinja.filter'
+        'match': '\\s*\\b(filter)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b'
+      }
+      {
+        'captures':
+          '1':
+            'name': 'keyword.control.jinja'
+          '2':
+            'name': 'variable.other.jinja.test'
+        'match': '\\s*\\b(is)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b'
+      }
+      {
+        'captures':
+          '1':
+            'name': 'keyword.control.jinja'
+        'match': '(?<=\\{\\%-|\\{\\%)\\s*\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*[,=])'
+      }
+      {
+        'match': '\\b(and|as|else|if|in|import|not|or|recursive|with(out)?\\s+context)\\b'
+        'name': 'keyword.control.jinja'
+      }
+      {
+        'match': '\\b(true|false|none)\\b'
+        'name': 'constant.language.jinja'
+      }
+      {
+        'match': '\\b(loop|super|self|varargs|kwargs)\\b'
+        'name': 'variable.language.jinja'
+      }
+      {
+        'match': '[a-zA-Z_][a-zA-Z0-9_]*'
+        'name': 'variable.other.jinja'
+      }
+      {
+        'match': '(\\+|\\-|\\*\\*|\\*|//|/|%)'
+        'name': 'keyword.operator.arithmetic.jinja'
+      }
+      {
+        'captures':
+          '1':
+            'name': 'punctuation.other.jinja'
+          '2':
+            'name': 'variable.other.jinja.filter'
+        'match': '(\\|)([a-zA-Z_][a-zA-Z0-9_]*)'
+      }
+      {
+        'captures':
+          '1':
+            'name': 'punctuation.other.jinja'
+          '2':
+            'name': 'variable.other.jinja.attribute'
+        'match': '(\\.)([a-zA-Z_][a-zA-Z0-9_]*)'
+      }
+      {
+        'begin': '\\['
+        'captures':
+          '0':
+            'name': 'punctuation.other.jinja'
+        'end': '\\]'
+        'patterns': [
+          {
+            'include': '#expression'
+          }
+        ]
+      }
+      {
+        'begin': '\\('
+        'captures':
+          '0':
+            'name': 'punctuation.other.jinja'
+        'end': '\\)'
+        'patterns': [
+          {
+            'include': '#expression'
+          }
+        ]
+      }
+      {
+        'begin': '\\{'
+        'captures':
+          '0':
+            'name': 'punctuation.other.jinja'
+        'end': '\\}'
+        'patterns': [
+          {
+            'include': '#expression'
+          }
+        ]
+      }
+      {
+        'match': '(\\.|:|\\||,)'
+        'name': 'punctuation.other.jinja'
+      }
+      {
+        'match': '(==|<=|=>|<|>|!=)'
+        'name': 'keyword.operator.comparison.jinja'
+      }
+      {
+        'match': '='
+        'name': 'keyword.operator.assignment.jinja'
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.jinja'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.jinja'
+        'name': 'string.quoted.double.jinja'
+        'patterns': [
+          {
+            'include': '#string'
+          }
+        ]
+
+'repository':
+	'comments':
+		'patterns': [
+				{
+					'match': '#.*'
+					'name': 'comment.number-sign'
+				}
+				{
+					'match': '\\/\\/.*'
+					'name': 'comment.double-slash'
+				}
+				{
+					'begin': '\\/\\*'
+					'end': '\\*\\/'
+					'name': 'comment.block'
+				}
+		]
+	'primitives':
+		'patterns': [
+			{
+				'match': '\\b(?:true|false)\\b'
+				'name': 'constant.language'
+			}
+			{
+				'match': '\\b(?:\\d+[kKmMgG]?b?)\\b'
+				'name': 'constant.numeric'
+			}
+			{'include': '#heredocs'}
+			{'include': '#strings'}
+		]
+	'strings':
+		'patterns': [
+			{
+				'comment': 'Terraform claims it only uses double-quoted strings'
+				'begin': '"'
+				'end': '"'
+				'name': 'string.interpolated'
+				'contentName': 'entity'
+			}
+		]
+	'heredocs':
+		'patterns': [
+			{
+				'begin': '<<(\\w*JSON)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.json'}
+				]
+			}
+			{
+				'begin': '<<(\\w*YA?ML)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.yaml'}
+				]
+			}
+			{
+				'begin': '<<(\\w*XML)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.xml'}
+				]
+			}
+			{
+				'begin': '<<(\\w*SH)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'contentName': 'string.interpolated'
+				'patterns': [
+					{'include': 'source.shell'}
+				]
+			}
+			{
+				'begin': '<<(\\w+)$'
+				'beginCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'end': '^(\\1)$'
+				'endCaptures':
+					'1':
+						'name': 'keyword.control.heredoc-token'
+				'name': 'keyword.operator.heredoc'
+				'contentName': 'string.interpolated'
+			}
+		]
+	'literals':
+		'patterns': [
+			{'include': '#primitives'}
+			{'include': '#lists'}
+		]
+	'lists':
+		'patterns': [
+			{
+				'name': 'language.list'
+				'begin': '\\['
+				'end': '\\]'
+				'patterns': [
+					{'include': '#primitives'}
+					{'match': ','}
+				]
+			}
+		]
+	'sections':
+		'patterns': [
+			{
+				'begin': '(\\w+)\\s*((:?"(\\w|-)*"\\s*)*)\\s*(\\{)'
+				'beginCaptures':
+					'1':
+						'name': 'entity.name.section'
+					'2':
+						'name': 'variable.parameter'
+					'3':
+						'name': 'punctuation.section.begin'
+				'end': '(\\})'
+				'endCaptures':
+					'1':
+						'name': 'punctuation.section.end'
+				'name': 'meta.section'
+				'patterns': [
+					{'include': '$base'}
+				]
+			}
+		]
+	'properties':
+		'patterns': [
+			{
+				'match': '\\b(count|depends_on|lifecycle|create_before_destroy|ignore_changes|prevent_destroy)\\b\\s*(=)'
+				'captures':
+					'1':
+						'name': 'support.variable'
+					'2':
+						'name': 'punctuation.assignment'
+			}
+		]
+	'keywords':
+		'patterns': [
+			{
+				'match': '\\b(resource|provider|variable|output|module)\\b'
+				'name': 'support.type'
+			}
+		]
