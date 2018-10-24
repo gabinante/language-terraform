@@ -19,6 +19,7 @@
     'patterns': [
       {
         'include': '#interplang'
+        'include': '#jinja_stuff'
       }
     ]
   }
