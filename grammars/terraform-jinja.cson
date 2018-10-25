@@ -169,11 +169,11 @@
         'name': 'comment.block.jinja'
       }
       {
-        'begin': '{{-?'
+        'begin': '{{ -?'
         'captures':
           '0':
             'name': 'entity.other.jinja.delimiter.variable'
-        'end': '-?}}'
+        'end': '-? }}'
         'name': 'meta.scope.jinja.variable'
         'patterns': [
           {
@@ -357,12 +357,10 @@
   'keywords':
     'patterns': [
       {
-        'match': '\\b(resource|provider|variable|output|module)\\b'
+        'match': '\\b(resource|provider|variable|output|module|data)\\b'
         'name': 'support.type'
         'patterns': [
-          {'include': '#jinja_expression'}
           {'include': '#jinja_stuff'}
-          {'include': 'source.jinja'}
         ]
       }
     ]
