@@ -3,3 +3,8 @@
     'commentStart': '# '
     'increaseIndentPattern': '^.*(\\{[^}]*|\\[[^\\]]*)$'
     'decreaseIndentPattern': '^\\s*[}\\]],?\\s*$'
+
+'.source.jinja':
+  'editor':
+    'commentStart': '{# '
+    'commentEnd': ' #}'
