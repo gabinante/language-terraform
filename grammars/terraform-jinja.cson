@@ -359,8 +359,10 @@
       {
         'match': '\\b(resource|provider|variable|output|module)\\b'
         'name': 'support.type'
-        {'include': '#jinja_expression'}
-        {'include': '#jinja_stuff'}
-        {'include': 'source.jinja'}
+        'patterns': [
+          {'include': '#jinja_expression'}
+          {'include': '#jinja_stuff'}
+          {'include': 'source.jinja'}
+        ]
       }
     ]
