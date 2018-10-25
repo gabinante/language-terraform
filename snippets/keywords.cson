@@ -1,4 +1,4 @@
-'.source.terraform-jinja2':
+'.source.terraform':
   'aa_policy_id':
     'prefix': 'aa_policy_id'
     'body': "aa_policy_id"
