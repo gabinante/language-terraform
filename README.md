@@ -5,7 +5,7 @@ Adds Atom syntax highlighting for Terraform.io configuration files that are bein
 ## Install
 
 ```bash
-$ apm install /Users/abinante/GitHub/language-terraform/grammars/terraform-jinja.cson
+$ apm install https://github.com/gabinante/language-terraform-jinja.git
 ```
 
 ## Contributions
