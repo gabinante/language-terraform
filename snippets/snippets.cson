@@ -120,7 +120,7 @@
   'resource':
     'prefix': 'resource'
     'body': """
-      resource "$1" "$2" "{\n"
+      resource "$1" "$2" ${"\{"\n}
           $3
       }$4
     """
