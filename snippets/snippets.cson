@@ -125,6 +125,14 @@
       }$4
     """
 
+  'data':
+    'prefix': 'data'
+    'body': """
+      data "$1" "$2" {
+          $3
+      }$4
+    """
+
   'email':
     'prefix': 'email'
     'body': 'email = "$1"'
