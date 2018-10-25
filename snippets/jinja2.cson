@@ -8,6 +8,9 @@
   'Complete Variable':
     'prefix': '{{'
     'body': '{{ $0 }}'
+  'Extends':
+    'prefix': 'extends'
+    'body': '{% extends ${1:"${2:template}"} %}'
   'Filter':
     'prefix': 'filter'
     'body': '{% filter ${1:filter} %}\n\t$2\n{% endfilter %}'
