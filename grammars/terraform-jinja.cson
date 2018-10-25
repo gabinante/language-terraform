@@ -14,6 +14,7 @@
   {'include': '#properties'}
   {'include': '#escaped_char'}
   {'include': '#jinja_expression'}
+  {'include': '#jinja_stuff'}
 ]
 
 'repository':
@@ -361,6 +362,7 @@
         'name': 'support.type'
         'patterns': [
           {'include': '#jinja_stuff'}
+          {'include': 'source.jinja'}
         ]
       }
     ]
