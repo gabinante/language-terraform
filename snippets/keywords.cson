@@ -1,4 +1,4 @@
-'.source.terraform':
+'.source.terraform-jinja2':
   'aa_policy_id':
     'prefix': 'aa_policy_id'
     'body': "aa_policy_id"
@@ -13678,4 +13678,3 @@
   'zones':
     'prefix': 'zones'
     'body': "zones"
-

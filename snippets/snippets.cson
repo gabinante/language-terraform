@@ -1,4 +1,4 @@
-'.source.terraform':
+'.source.terraform-jinja2':
   'variable':
     'prefix': 'variable'
     'body': """
