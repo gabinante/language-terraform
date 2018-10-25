@@ -168,19 +168,19 @@
         'end': '-?#}'
         'name': 'comment.block.jinja'
       }
-      {
-        'begin': '{{-?'
-        'captures':
-          '0':
-            'name': 'entity.other.jinja.delimiter.variable'
-        'end': '-?}}'
-        'name': 'meta.scope.jinja.variable'
-        'patterns': [
-          {
-            'include': '#jinja_expression'
-          }
-        ]
-      }
+      # {
+      #   'begin': '{{-?'
+      #   'captures':
+      #     '0':
+      #       'name': 'entity.other.jinja.delimiter.variable'
+      #   'end': '-?}}'
+      #   'name': 'meta.scope.jinja.variable'
+      #   'patterns': [
+      #     {
+      #       'include': '#jinja_expression'
+      #     }
+      #   ]
+      # }
       {
         'begin': '{%-?'
         'captures':
