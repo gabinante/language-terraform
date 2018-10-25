@@ -1,4 +1,4 @@
-'.source.terraform-jinja2'
+'.source.terraform-jinja2':
   'Block':
     'prefix': 'block'
     'body': '{% block ${1:name} %}\n\t$2\n{% endblock %}'
